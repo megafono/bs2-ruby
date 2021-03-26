@@ -258,9 +258,9 @@ class Bs2Test < Minitest::Test
         'User-Agent'=>'Faraday v1.3.0'
       }).to_return(status: 200, body: "test", headers: {})
 
-    BS2.generate_pdf(billet['id'], "/tmp/boleto.pdf")
+    data = BS2.generate_pdf(billet['id'], "/tmp/boleto.pdf")
 
-    assert_equal File.read('/tmp/boleto.pdf'), 'test'
+    assert_equal data, 'test'
   end
 
   def test_cancel_billet

@@ -53,12 +53,14 @@ module BS2
       end
     end
 
-    def generate_pdf(id, filename)
+    def generate_pdf(id)
       connector = create_connector(false)
 
       response = connector.get("/pj/forintegration/cobranca/v1/boletos/#{id}/imprimivel")
 
-      File.open(filename, 'wb') { |fp| fp.write(response.body) }
+      return false unless response.success?
+
+      response.body
     end
 
     def fetch_billet(id)
