@@ -88,6 +88,8 @@ module BS2
 
       resp = connector.post("/pj/forintegration/cobranca/v1/boletos/simplificado", data)
 
+      return false unless resp.success?
+
       resp.body
     end
 
