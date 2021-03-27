@@ -19,7 +19,7 @@ jobs:
         ruby-version: 2.6.x
 
     - name: Test
-      run: rake test
+      run: bundle exec rake test
 
     - name: Publish to RubyGems
       run: |
