@@ -18,6 +18,9 @@ jobs:
       with:
         ruby-version: 2.6.x
 
+    - name: Test
+      run: rake test
+
     - name: Publish to RubyGems
       run: |
         mkdir -p $HOME/.gem
